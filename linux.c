@@ -23,7 +23,6 @@ int main(void) {
 
 void _start() __attribute__ ((naked));
 void _start() {
-    asm volatile("ldr sp, =(0xbf000000-4)");
     main();
     asm volatile(
         "mov r7, #1\n" /* exit */

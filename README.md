@@ -15,6 +15,6 @@ printf.c and its header file is all needed. You need to define `PRINTF_NAME` to 
 
 See Makefile for examples, it comes with some example builds like `linux` and `memtest`.
 
-`linux` target is a standalone application using system calls to print directly to stdout. (You may need to disable address randomization to get stack assigned to specified address. This will be fixed in future with some time.)
+`linux` target is a standalone application using system calls to print directly to stdout.
 
 `memtest` target is a simple application using a buffer to test functionality of printf implementation.
