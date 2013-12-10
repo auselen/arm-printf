@@ -17,7 +17,7 @@
 */
 
 #ifndef PRINTF_PUTC
-#error "PRINTF_PUTC is not defined."
+#define PRINTF_PUTC putchar
 #endif
 
 /*
@@ -25,7 +25,7 @@
 */    
 
 #ifndef PRINTF_NAME
-#error "PRINTF_NAME is not defined."
+#define PRINTF_NAME printf
 #endif
 
 void PRINTF_NAME(const char *fmt, ...);

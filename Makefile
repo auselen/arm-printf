@@ -1,10 +1,12 @@
 CROSSCOMPILE ?= arm-linux-gnueabihf-
 
-PRINTF_NAME = test_printf
-PRINTF_PUTC = test_putc
+CFLAGS = -O2 -Wall -marm
 
-printf.o: printf.h printf.c 
-	$(CROSSCOMPILE)gcc -O2 -Wall -nostdlib -DPRINTF_NAME=$(PRINTF_NAME) -DPRINTF_PUTC=$(PRINTF_PUTC) -c printf.c
+linux: linux.c printf.c
+	$(CROSSCOMPILE)gcc $(CFLAGS) -nostartfiles -nodefaultlibs -DPRINTF_NAME=linuxf -DPRINTF_PUTC=linuxc linux.c printf.c -o $@
+
+memtest: memtest.c printf.c
+	$(CROSSCOMPILE)gcc $(CFLAGS) -static -DPRINTF_NAME=memf -DPRINTF_PUTC=memc memtest.c printf.c -o $@
 
 clean:
-	rm printf.o
+	rm linux memtest
